@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace SocketServerWpf
+namespace SocketServerWPF
 {
     public class SocketConnection
     {
@@ -75,6 +75,10 @@ namespace SocketServerWpf
                         break;
 
                     Console.WriteLine(clientName + ": " + data);
+                    mainWindow.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+                    {
+                        mainWindow.chatBox.Text += clientName + ": " + data + "\n";
+                    }));
 
                     byte[] msg = Encoding.UTF8.GetBytes(data);
                     //handler.Send(msg);
@@ -97,6 +101,11 @@ namespace SocketServerWpf
                 clientDic.Remove(clientName);
             }
 
+        }
+
+        public void consoleWW()
+        {
+            Console.WriteLine("test");
         }
 
     }

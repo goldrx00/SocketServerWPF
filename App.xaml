@@ -1,8 +1,10 @@
-﻿<Application x:Class="SocketServerWpf.App"
+﻿<Application x:Class="SocketServerWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SocketServerWpf"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:SocketServerWPF"
+             StartupUri="MainWindow.xaml"             
+             >
+
     <Application.Resources>
          
     </Application.Resources>
