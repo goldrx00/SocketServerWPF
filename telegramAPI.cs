@@ -11,13 +11,15 @@ namespace SocketServerWPF
     {
 
         MainWindow mainWindow;
+        Telegram.Bot.TelegramBotClient Bot;
+        string token;
 
         public TelegramAPI(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-        }
-
-        private Telegram.Bot.TelegramBotClient Bot = new Telegram.Bot.TelegramBotClient("802319057:AAF2_2iNBUEJ0lJlR5TnWrE82OxlFu5pJwY");
+            //token = mainWindow.classINI.iniGet("Token", "Token");
+            Bot = new Telegram.Bot.TelegramBotClient(mainWindow.mClassINI.iniGet("Token", "Token"));
+        }        
 
         // init methods...
         public async void telegramAPIAsync()

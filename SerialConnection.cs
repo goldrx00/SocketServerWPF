@@ -28,15 +28,21 @@ namespace SocketServerWPF
             SP.StopBits = StopBits.One;
             SP.Encoding = Encoding.UTF8;
             //SP.ReadTimeout = (int)500;
-            //SP.WriteTimeout = (int)500;
-
-            SP.DataReceived += new SerialDataReceivedEventHandler(SP_DataReceived);
+            //SP.WriteTimeout = (int)500;            
         }
 
         public void Open()
         {
-            SP.Open();
-            SP.WriteLine("ON");
+            try
+            {
+                SP.DataReceived += new SerialDataReceivedEventHandler(SP_DataReceived);
+                SP.Open();
+                SP.WriteLine("ON");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
         public void Close()
