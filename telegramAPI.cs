@@ -11,21 +11,18 @@ namespace SocketServerWPF
     {
 
         MainWindow mainWindow;
-        Telegram.Bot.TelegramBotClient Bot;
-        string token;
+        Telegram.Bot.TelegramBotClient Bot; 
 
         public TelegramAPI(MainWindow mainWindow)
         {
-            this.mainWindow = mainWindow;
-            //token = mainWindow.classINI.iniGet("Token", "Token");
-            Bot = new Telegram.Bot.TelegramBotClient(mainWindow.mClassINI.iniGet("Token", "Token"));
+            this.mainWindow = mainWindow;        
         }        
 
         // init methods...
         public async void telegramAPIAsync()
         {
             //Token Key 를 이용하여 봇을 가져온다.
-            //var Bot = new Telegram.Bot.TelegramBotClient("802319057:AAF2_2iNBUEJ0lJlR5TnWrE82OxlFu5pJwY");
+            Bot = new Telegram.Bot.TelegramBotClient(mainWindow.mClassINI.iniGet("Token", "Token"));
             //Bot 에 대한 정보를 가져온다.
             var me = await Bot.GetMeAsync();
             //Bot 의 이름을 출력한다.
